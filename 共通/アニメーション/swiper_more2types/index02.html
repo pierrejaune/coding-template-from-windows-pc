@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>data- 属性で柔軟に設定</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.css"
+    />
+    <script src="js/script02.js" defer></script>
+    <style>
+      .container {
+        width: 500px;
+        margin: 0 auto 50px;
+      }
+      .swiper {
+        width: 100%;
+        height: 500px;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- フェードスライダー1 -->
+      <div class="swiper anim" data-swiper-type="fade">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Fade Slide 1</div>
+          <div class="swiper-slide">Fade Slide 2</div>
+          <div class="swiper-slide">Fade Slide 3</div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- フェードスライダー2 -->
+      <div class="swiper anim non-pagination" data-swiper-type="fade">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Fade Slide 1</div>
+          <div class="swiper-slide">Fade Slide 2</div>
+          <div class="swiper-slide">Fade Slide 3</div>
+        </div>
+      </div>
+
+      <!-- スライドスライダー1 -->
+      <div class="swiper anim" data-swiper-type="slide">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- スライドスライダー2 -->
+      <div class="swiper anim non-pagination" data-swiper-type="slide">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

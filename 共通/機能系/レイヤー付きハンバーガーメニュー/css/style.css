@@ -1,0 +1,172 @@
+@charset "UTF-8";
+.name {
+  background-color: #fff;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", serif;
+  line-height: 1;
+  position: absolute;
+  top: 0.63vw;
+  right: 0.63vw;
+  bottom: 0.63vw;
+  left: 0.63vw;
+  margin-top: 0.63vw;
+  margin-right: 0.63vw;
+  margin-bottom: 0.63vw;
+  margin-left: 0.63vw;
+  padding-top: 0.63vw;
+  padding-right: 0.63vw;
+  padding-bottom: 0.63vw;
+  padding-left: 0.63vw;
+  width: 62.5vw;
+  height: 62.5vw;
+  font-size: 3.13vw;
+}
+.name a {
+  transition: 0.2s;
+}
+.name a:hover {
+  opacity: 0.7;
+}
+.name img {
+  vertical-align: bottom;
+}
+.name .dfl {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+.name p {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+.name p.anim {
+  transform: translate(50px, 50px);
+  opacity: 0;
+  transition: 0.5s;
+}
+.name p.anim.showed {
+  transform: translate(0);
+  opacity: 1;
+}
+.name p.anim::before {
+  content: "";
+  display: inline-block;
+  border-color: orange;
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  height: 30px;
+  width: 30px;
+  transform: rotate(-45deg);
+}
+.name .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 15px 30px 15px;
+  border-color: transparent transparent orange transparent;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+}
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #333;
+  transition: all 0.3s;
+}
+.hamburger-menu.active span:nth-child(1) {
+  transform: translateY(12px) rotate(45deg);
+}
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+/* ナビゲーションメニュー */
+.nav-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 250px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 99;
+}
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-menu ul li {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.nav-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.nav-menu ul li.has-submenu {
+  position: relative;
+}
+.nav-menu ul li.has-submenu .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+.nav-menu ul li.has-submenu.open .submenu {
+  display: block;
+}
+.nav-menu.active {
+  transform: translateX(0);
+}
+
+/* 追加：レイヤー */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 50;
+}
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}

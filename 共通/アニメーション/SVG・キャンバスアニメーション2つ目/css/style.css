@@ -1,0 +1,125 @@
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+#bounce-svg circle {
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#fade-svg rect {
+  animation: fade 2s infinite alternate;
+}
+
+@keyframes scale-in {
+  to {
+    transform: scale(1);
+  }
+}
+#scale-in-svg path {
+  transform: scale(0);
+  animation: scale-in 1s forwards;
+}
+
+@keyframes wave-line {
+  0% {
+    stroke-dasharray: 10, 200;
+  }
+  100% {
+    stroke-dasharray: 50, 160;
+  }
+}
+#wave-line path {
+  stroke-width: 2;
+  stroke: blue;
+  animation: wave-line 2s infinite alternate ease-in-out;
+}
+
+@keyframes rotate-slide-in {
+  to {
+    transform: translateX(0) rotate(0);
+  }
+}
+#rotate-slide-svg rect {
+  transform: translateX(-100%) rotate(-90deg);
+  animation: rotate-slide-in 1s forwards;
+}
+
+@keyframes expand-fade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+#expand-fade-svg circle {
+  animation: expand-fade 1.5s forwards;
+}
+
+@keyframes stroke-fill {
+  0% {
+    fill: none;
+    stroke: black;
+    stroke-width: 2px;
+  }
+  100% {
+    fill: black;
+    stroke: none;
+  }
+}
+#stroke-fill-text text {
+  animation: stroke-fill 2s infinite alternate;
+}
+
+@keyframes elastic-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+#elastic-svg circle {
+  animation: elastic-scale 1.5s infinite;
+}
+
+@keyframes random-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, -30px);
+  }
+}
+#random-move-svg rect {
+  animation: random-move 3s infinite alternate ease-in-out;
+}
+
+@keyframes color-shift {
+  0% {
+    fill: red;
+  }
+  50% {
+    fill: green;
+  }
+  100% {
+    fill: blue;
+  }
+}
+#color-shift-svg circle {
+  animation: color-shift 4s infinite alternate ease-in-out;
+}

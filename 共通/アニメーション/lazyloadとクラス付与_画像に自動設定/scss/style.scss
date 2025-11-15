@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: sans-serif;
+}
+
+.look {
+  &__list {
+    width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  &__image {
+    list-style: none;
+    width: calc((100% - 6px) / 2);
+    a {
+      display: block;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+      opacity: 0;
+      transition: all 0.5s ease;
+      &.fadein {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* Lazyload初期状態: 非表示 */
+.lazyload {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* 読み込み完了時にfadeinさせる */
+.fadein {
+  opacity: 1;
+}

@@ -1,0 +1,34 @@
+svg {
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+/* 初期状態：線が見えない（後でJSで長さを設定） */
+.js-draw {
+  fill: none;
+  stroke: #1e90ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 0; /* ← 最初は見えない（ちらつき防止） */
+  transition: stroke-dashoffset 2s ease, opacity 0.3s ease;
+}
+
+/* 描画開始時：showedが付与されたら線が現れて描かれる */
+.js-draw.showed {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+@keyframes handwritingReverse {
+  0% {
+    stroke-dashoffset: 0; /* ← 全体が表示された状態から */
+  }
+  100% {
+    stroke-dashoffset: var(--path-length); /* ← 右→左に描かれていく */
+  }
+}

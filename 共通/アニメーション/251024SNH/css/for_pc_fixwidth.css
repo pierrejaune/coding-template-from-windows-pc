@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* 基本設定 */
+html {
+  font-size: 7.33333px;
+}
+
+/* Sass関数 */
+/* 使用例 */
+.container {
+  width: 75.0000340909rem;
+}

@@ -1,0 +1,21 @@
+// .sec {
+//   width: 30%;
+//   margin: 0 auto;
+// }
+
+.ph__area {
+  width: 300px;
+  margin: 0 auto;
+
+  .ph__img {
+    height: 50vh;
+    margin-bottom: 5vh; // 最低限のマージンを追加
+    position: relative;
+
+    img {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+  }
+}

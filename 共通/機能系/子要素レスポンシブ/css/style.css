@@ -1,0 +1,20 @@
+html {
+  font-size: 0.7142857143vw;
+}
+
+.sec {
+  width: 44rem;
+  margin: 0 auto;
+}
+.sec img {
+  width: 100%;
+}
+.sec .image01 {
+  width: 34.3rem;
+}
+.sec .image02 {
+  width: 23.5rem;
+}
+.sec .image03 {
+  width: 17.6rem;
+}

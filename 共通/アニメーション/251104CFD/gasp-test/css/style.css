@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: aquamarine;
+  position: fixed;
+}
+
+figure {
+  display: block;
+}
+.sec {
+  position: relative;
+}
+
+.sec__area {
+  position: relative;
+  height: 200vh; /* スクロール量を確保 */
+}
+
+.sec__sticky {
+  position: relative;
+  width: 100%;
+}
+
+.bg-navy {
+  padding: 10px;
+  width: 500px;
+  margin: 0 auto;
+  background: #001f3f;
+  height: 445px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.sec__img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  /* height: 300px; */
+}
+
+.sec__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sec__img01 {
+  top: 0;
+  z-index: 1;
+}
+
+.sec__img02 {
+  top: 100%;
+  z-index: 2;
+  opacity: 1;
+}

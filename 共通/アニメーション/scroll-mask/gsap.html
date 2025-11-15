@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP ScrollTrigger マスク内パララックス</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 300vh;
+        background: #f5f5f5;
+        font-family: sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .sec {
+        padding: 100vh 0;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sec__img {
+        position: relative;
+        width: 345px;
+        height: 435px;
+        overflow: hidden;
+        mask-image: url('./img/mask-ellipse.png');
+        -webkit-mask-image: url('./img/mask-ellipse.png');
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-position: center;
+        background: #ddd;
+      }
+
+      .sec__img img {
+        position: absolute;
+        object-fit: cover;
+        will-change: transform;
+      }
+
+      .sec__img.up img {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .sec__img.toRight img {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    </style>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  </head>
+
+  <body>
+    <section class="sec">
+      <div class="sec__img up">
+        <img src="https://picsum.photos/id/1018/600/900" alt="vertical" />
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec__img toRight">
+        <img src="https://picsum.photos/id/1025/900/600" alt="horizontal" />
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      window.addEventListener('load', () => {
+        // 共通の ScrollTrigger 設定
+        const commonTriggerSettings = {
+          start: 'top 100%', // 要素のtopがブラウザ下部に来たら開始
+          end: 'top 50%', // 要素のtopがブラウザ中央（50%）に来たら終了
+          scrub: true, // スクロールに同期して動く
+          markers: true, // デバッグ用マーカー表示（確認後削除可）
+        };
+
+        // すべての .sec__img 要素を取得
+        document.querySelectorAll('.sec__img').forEach((sec) => {
+          const img = sec.querySelector('img');
+          const maskW = sec.offsetWidth; // マスクの幅
+          const maskH = sec.offsetHeight; // マスクの高さ
+
+          // -----------------------------
+          // 縦方向パララックス（上方向へ動く）
+          // -----------------------------
+          if (sec.classList.contains('up')) {
+            // 画像を少し大きく（上下方向に余裕を持たせる）
+            img.style.width = `${maskW * 1}px`;
+            img.style.height = `${maskH * 1.2}px`;
+
+            // 差分（マスク外に出ている部分）を計算
+            const move = img.getBoundingClientRect().height - maskH;
+
+            // GSAPアニメーション設定
+            gsap.fromTo(
+              img,
+              { y: 0 }, // 初期位置
+              {
+                y: -move, // 上方向へ差分分だけ動く
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: sec,
+                  ...commonTriggerSettings, // 共通設定を展開
+                },
+              }
+            );
+          }
+
+          // -----------------------------
+          // 横方向パララックス（右方向へ動く）
+          // -----------------------------
+          if (sec.classList.contains('toRight')) {
+            // 画像を少し大きく（左右方向に余裕を持たせる）
+            img.style.width = `${maskW * 1.2}px`;
+            img.style.height = `${maskH * 1}px`;
+
+            // 差分を計算
+            const move = img.clientWidth - maskW;
+
+            // GSAPアニメーション設定
+            gsap.fromTo(
+              img,
+              { x: 0 }, // 初期位置
+              {
+                x: move, // 右方向へ差分分だけ動く
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: sec,
+                  ...commonTriggerSettings, // 共通設定を展開
+                },
+              }
+            );
+          }
+        });
+
+        // ★ 全アニメーション設定後にリフレッシュ！
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

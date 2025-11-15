@@ -1,0 +1,187 @@
+// 1. SVGがバウンドするアニメーション
+@mixin bounce($duration: 1.5s) {
+  animation: bounce $duration infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+#bounce-svg circle {
+  @include bounce(1.5s);
+}
+
+// 2. SVGがフェードイン・フェードアウトする
+@mixin fade($duration: 2s) {
+  animation: fade $duration infinite alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#fade-svg rect {
+  @include fade(2s);
+}
+
+// 3. SVGの要素がスケールしながら登場
+@mixin scale-in($duration: 1s) {
+  transform: scale(0);
+  animation: scale-in $duration forwards;
+}
+
+@keyframes scale-in {
+  to {
+    transform: scale(1);
+  }
+}
+
+#scale-in-svg path {
+  @include scale-in(1s);
+}
+
+// 4. SVGの線が波のように動く
+@mixin wave-line($duration: 2s) {
+  animation: wave-line $duration infinite alternate ease-in-out;
+}
+
+@keyframes wave-line {
+  0% {
+    stroke-dasharray: 10, 200;
+  }
+  100% {
+    stroke-dasharray: 50, 160;
+  }
+}
+
+#wave-line path {
+  stroke-width: 2;
+  stroke: blue;
+  @include wave-line(2s);
+}
+
+// 5. SVGの要素が回転しながらスライドイン
+@mixin rotate-slide-in($duration: 1s) {
+  transform: translateX(-100%) rotate(-90deg);
+  animation: rotate-slide-in $duration forwards;
+}
+
+@keyframes rotate-slide-in {
+  to {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+#rotate-slide-svg rect {
+  @include rotate-slide-in(1s);
+}
+
+// 6. SVGの円が拡大しながらフェードアウト
+@mixin expand-fade($duration: 1.5s) {
+  animation: expand-fade $duration forwards;
+}
+
+@keyframes expand-fade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+#expand-fade-svg circle {
+  @include expand-fade(1.5s);
+}
+
+// 7. SVGのテキストがストロークとフィルで切り替わる
+@mixin stroke-fill($duration: 2s) {
+  animation: stroke-fill $duration infinite alternate;
+}
+
+@keyframes stroke-fill {
+  0% {
+    fill: none;
+    stroke: black;
+    stroke-width: 2px;
+  }
+  100% {
+    fill: black;
+    stroke: none;
+  }
+}
+
+#stroke-fill-text text {
+  @include stroke-fill(2s);
+}
+
+// 8. SVGの要素が弾むように拡大・縮小
+@mixin elastic-scale($duration: 1.5s) {
+  animation: elastic-scale $duration infinite;
+}
+
+@keyframes elastic-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+#elastic-svg circle {
+  @include elastic-scale(1.5s);
+}
+
+// 9. SVGの要素がランダムな位置に移動
+@mixin random-move($duration: 3s) {
+  animation: random-move $duration infinite alternate ease-in-out;
+}
+
+@keyframes random-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, -30px);
+  }
+}
+
+#random-move-svg rect {
+  @include random-move(3s);
+}
+
+// 10. SVGの色が時間経過で変化する
+@mixin color-shift($duration: 4s) {
+  animation: color-shift $duration infinite alternate ease-in-out;
+}
+
+@keyframes color-shift {
+  0% {
+    fill: red;
+  }
+  50% {
+    fill: green;
+  }
+  100% {
+    fill: blue;
+  }
+}
+
+#color-shift-svg circle {
+  @include color-shift(4s);
+}

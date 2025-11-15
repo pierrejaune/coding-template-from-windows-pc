@@ -1,0 +1,56 @@
+.f-container {
+  width: 100%;
+  overflow: clip;
+}
+.f-container * {
+  margin: 0;
+  padding: 0;
+}
+.f-container .f-main {
+  width: 30rem;
+  margin: 0 auto;
+}
+
+.loop-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.loop-slider__track {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  animation: loop-scroll 10s linear infinite;
+}
+.loop-slider__track > * {
+  display: inline-block;
+  margin-right: 2rem;
+  flex-shrink: 0;
+}
+.loop-slider__track img {
+  height: 80px;
+  width: auto;
+  vertical-align: middle;
+}
+.loop-slider__track span {
+  font-size: 1.2rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+.loop-slider--reverse .loop-slider__track {
+  animation-direction: reverse;
+}
+.loop-slider:hover .loop-slider__track {
+  animation-play-state: paused;
+}
+
+@keyframes loop-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

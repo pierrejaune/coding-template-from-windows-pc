@@ -1,0 +1,198 @@
+@charset "UTF-8";
+/* ✅ 光るテキスト */
+/* ✅ 背景切替テキスト */
+/* ✅ 文字が1文字ずつ0.1秒ずつ遅延してフェードイン */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding-top: 100vh;
+  display: grid;
+  place-content: center;
+}
+ul li {
+  width: 200px;
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+}
+
+.typewriter.active {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid black;
+  animation: typewriter 2s steps(30) 0s forwards;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.text-bounce.active {
+  display: inline-block;
+  animation: bounce 0.6s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gradient-text.active {
+  background: linear-gradient(90deg, #ff6347, #ffcc00, #00ffcc);
+  background-size: 300%;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: gradient-move 2s ease-in-out infinite;
+}
+@keyframes gradient-move {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.slide-in-text.active {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideIn 1s forwards;
+  /* スライドイン */
+}
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.slide-in-text.active.active {
+  animation: slideIn 1s forwards;
+}
+
+.glowing-text.active {
+  color: #fff;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  animation: glowing 1.5s infinite alternate;
+  /* 光るテキスト */
+}
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+  }
+}
+
+.rotate-text.active {
+  display: inline-block;
+  animation: rotate 2s ease-out forwards;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.background-switch.active {
+  background-image: linear-gradient(45deg, #ff7f50, #47ff8d, #a6cd1a);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: backgroundSwitch 1.5s infinite alternate;
+}
+@keyframes backgroundSwitch {
+  0% {
+    background-image: linear-gradient(45deg, #ff7f50, #47ff8d, #a6cd1a);
+  }
+  100% {
+    background-image: linear-gradient(45deg, #fff950, #478aff, #ac1acd);
+  }
+}
+
+.scatter-text.active {
+  display: inline-block;
+  opacity: 0;
+  animation: scatter 2s ease-in-out forwards;
+}
+@keyframes scatter {
+  0% {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(50%) translateY(50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+.shuffle-text.active {
+  display: inline-block;
+  animation: shuffle 1s ease-in-out;
+}
+@keyframes shuffle {
+  0% {
+    letter-spacing: 0;
+  }
+  25% {
+    letter-spacing: 10px;
+  }
+  50% {
+    letter-spacing: -10px;
+  }
+  75% {
+    letter-spacing: 5px;
+  }
+  100% {
+    letter-spacing: 0;
+  }
+}
+
+.wave-text.active {
+  display: inline-block;
+  animation: wave 2s ease-in-out infinite;
+}
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 新規追加: フェードインで表示されるテキスト */
+.fade-in-letters.active span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInLetters 2s forwards;
+}
+@keyframes fadeInLetters {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

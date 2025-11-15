@@ -1,0 +1,24 @@
+/* .feature の中だけで使用できる CSSカスタムプロパティのテンプレート
+✅ 特徴：
+:root に書かないので グローバルには影響しません
+.feature コンポーネントだけで変数を管理できます
+SCSSとの併用や、コンポーネント単位のテーマ切り替えにも便利です
+*/
+.feature {
+  /* この中だけで使えるカスタムプロパティを定義 */
+  --feature-bg-color: #f9f9f9;
+  --feature-text-color: #333;
+  --feature-padding: 2rem;
+  --feature-radius: 12px;
+}
+
+.feature {
+  background-color: var(--feature-bg-color);
+  color: var(--feature-text-color);
+  padding: var(--feature-padding);
+  border-radius: var(--feature-radius);
+}
+
+.feature h2 {
+  color: var(--feature-text-color);
+}

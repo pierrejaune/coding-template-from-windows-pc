@@ -1,0 +1,23 @@
+html {
+  font-size: 7.33333px;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+.container {
+  width: 75.0000340909rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3.2727287603rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 46.363657438rem;
+  }
+}

@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+// SPデザインをPCで可変させるときに使用する。
+@function spRem($sp_px) {
+  $ratio: $sp_px / 750;
+  $pc_px: 440 * $ratio;
+  $rem: $pc_px / 10;
+
+  // 小数第1位で四捨五入（例：34.32 → 34.3）
+  $rounded: round($rem * 10) / 10;
+
+  @return $rounded * 1rem;
+}
+
+html {
+  font-size: calc(10 * (100vw / 1400));
+}
+
+.sec {
+  width: 44rem;
+  margin: 0 auto;
+  img {
+    width: 100%;
+  }
+  .image01 {
+    width: spRem(585);
+  }
+  .image02 {
+    width: spRem(400);
+  }
+  .image03 {
+    width: spRem(300);
+  }
+}

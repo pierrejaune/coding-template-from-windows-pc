@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css?ver=1" />
+  </head>
+  <body>
+    <!-- Sticky ナビゲーション -->
+    <nav class="sticky-nav">
+      <h2>Sticky Navigation</h2>
+    </nav>
+
+    <div class="container">
+      <!-- Sticky サイドバー -->
+      <aside class="sticky-sidebar">
+        <h3>Sticky Sidebar</h3>
+        <p>スクロールしても固定されるメニュー</p>
+      </aside>
+
+      <main class="content">
+        <h1>Position Sticky の例</h1>
+        <p>スクロールすると各セクションが固定されます。</p>
+
+        <!-- 🟢 Sticky ヘッダー -->
+        <header class="sticky-header">
+          <h2>Sticky Header</h2>
+        </header>
+
+        <!-- 🟠 Sticky ボックス -->
+        <div class="sticky-box">
+          <p>このボックスはスクロールしても固定されます。</p>
+        </div>
+
+        <!-- 🔵 3つの異なる Sticky セクション -->
+        <div class="sticky-sections">
+          <section class="sticky-section section1">
+            <h2>セクション 1</h2>
+            <p>これは最初のセクションです。</p>
+          </section>
+
+          <section class="sticky-section section2">
+            <h2>セクション 2</h2>
+            <p>これは2番目のセクションです。</p>
+          </section>
+
+          <section class="sticky-section section3">
+            <h2>セクション 3</h2>
+            <p>これは3番目のセクションです。</p>
+          </section>
+        </div>
+
+        <!-- 長いコンテンツエリア（スクロールのため） -->
+        <div class="long-content">
+          <p>さらにスクロールするとセクションが固定される様子がわかります。</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

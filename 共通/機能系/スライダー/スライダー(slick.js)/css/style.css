@@ -1,0 +1,233 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  text-align: center;
+}
+
+.slider-for {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 300px;
+  margin: 0 auto;
+}
+.slider-for img {
+  width: 100%; /* グリッドの幅いっぱいに広げる */
+  height: auto; /* 縦横比を維持 */
+}
+
+.slider-nav {
+  width: 50%; /* 自動調整 */
+  margin: 10px auto;
+}
+.slider-nav .slick-track .slick-slide {
+  padding: 5px;
+}
+.slider-nav .slick-track img {
+  width: 100%; /* グリッドの幅いっぱいに広げる */
+  height: auto; /* 縦横比を維持 */
+}
+
+.slider-container {
+  width: 500px;
+  position: relative;
+  margin: 0 auto;
+}
+.slider-container .slider {
+  width: 100%;
+}
+.slider-container .slider img {
+  width: 100%;
+  height: auto;
+}
+
+.thumbnail-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(calc(-100% - 10px));
+}
+.thumbnail-slider div {
+  cursor: pointer;
+}
+.thumbnail-slider div img {
+  width: 80px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container-02 {
+  width: 500px;
+  margin: 20px auto;
+  position: relative;
+}
+.container-02 img {
+  width: 100%;
+  height: auto;
+}
+.container-02 .simple-slider {
+  position: relative;
+  overflow: hidden;
+  height: 708px;
+  margin: 20px auto;
+}
+.container-02 .simple-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s ease-in;
+}
+.container-02 .simple-slider .slide.active {
+  animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    z-index: 5;
+  }
+  40%, 100% {
+    opacity: 1;
+  }
+}
+.container-02 .button {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.container-02 .button.prev {
+  left: 0;
+  transform: translateX(-50%);
+}
+.container-02 .button.next {
+  right: 0;
+  transform: translateX(50%);
+}
+
+.dots-slider {
+  width: 500px;
+  margin: 20px auto;
+}
+.dots-slider img {
+  width: 100%;
+  height: auto;
+}
+
+.slick-slider-3d {
+  perspective: 1000px;
+  width: 500px;
+  margin: 0 auto;
+}
+.slick-slider-3d .slick-list {
+  overflow: visible;
+}
+.slick-slider-3d .slick-slide {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.5;
+  transform: scale(0.8) rotateY(30deg);
+}
+.slick-slider-3d .slick-slide.prev {
+  transform: scale(0.8) rotateY(-30deg);
+}
+.slick-slider-3d .slick-slide.current {
+  transform: scale(1) rotateY(0deg);
+  opacity: 1;
+}
+.slick-slider-3d .slick-slide.next {
+  transform: scale(0.8) rotateY(30deg);
+}
+.slick-slider-3d .slick-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.slick-slider-3d-nav {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.slick-slider-3d-nav .slick-list {
+  overflow: visible;
+}
+.slick-slider-3d-nav .slick-track {
+  display: flex;
+  justify-content: center;
+  transform: translateX(0%) !important;
+}
+.slick-slider-3d-nav .slick-slide {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  margin: 0 10px;
+}
+.slick-slider-3d-nav .slick-slide img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+.slick-slider-3d-nav .slick-slide.slick-current {
+  opacity: 1;
+}
+
+.text-slider {
+  width: 500px;
+  margin: 0 auto;
+}
+.text-slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-slider {
+  width: 500px;
+  margin: 0 auto;
+}
+.carousel-slider .slick-slide {
+  padding: 0 10px;
+}
+.carousel-slider .slick-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.carousel-slider .slick-prev,
+.carousel-slider .slick-next {
+  z-index: 10;
+}
+.carousel-slider .slick-prev:before,
+.carousel-slider .slick-next:before {
+  color: black;
+  font-size: 24px;
+}
+.carousel-slider .slick-dots {
+  bottom: -30px;
+}
+.carousel-slider .slick-dots li {
+  margin: 0 5px;
+}
+.carousel-slider .slick-dots li button:before {
+  font-size: 10px;
+  color: gray;
+}
+.carousel-slider .slick-dots .slick-active button:before {
+  color: black;
+}

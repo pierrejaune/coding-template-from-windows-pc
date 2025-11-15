@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>視差効果 (lax.js)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lax.js@2.0.3/lib/lax.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css?ver=1" />
+  </head>
+  <body>
+    <header class="header">視差効果 (lax.js)</header>
+    <img src="img/lax.png" alt="" />
+    <div class="background"></div>
+
+    <section class="parallax-section">
+      <div class="parallax-image" data-lax-preset="lazy-250">
+        <img src="img/image01.jpg" alt="" />
+      </div>
+    </section>
+
+    <section class="parallax-section">
+      <div class="parallax-text" data-lax-preset="lazy-100">
+        左へ流れるテキスト
+      </div>
+    </section>
+
+    <section class="parallax-section">
+      <div class="parallax-text" data-lax-preset="lazy-100">
+        右へ流れるテキスト
+      </div>
+    </section>
+
+    <section class="parallax-section">
+      <div class="parallax-scale" data-lax-preset="zoomIn">ズームイン</div>
+    </section>
+
+    <section class="content">
+      <h1>スクロールすると背景が変わる</h1>
+      <p>スクロールして背景の変化を確認してください。</p>
+    </section>
+  </body>
+</html>

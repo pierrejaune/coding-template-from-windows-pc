@@ -1,0 +1,76 @@
+.feature {
+  svg[data-vivus-id] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.animated {
+      opacity: 1;
+    }
+  }
+
+  .mv__Inner {
+  }
+
+  .mv__Hand {
+    width: 20rem;
+    margin-bottom: 10rem;
+
+    svg {
+      display: none;
+    }
+
+    #base path {
+      fill: #cc722a;
+    }
+
+    #mask path {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 10px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  .mv__Hi {
+    width: 30rem;
+
+    svg {
+      path {
+        fill: white;
+        stroke: pink;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+
+        // 線を描くアニメーションの基本設定
+        // stroke-dasharray: 1000; // 線を どのような長さの破線にするか を指定します。
+        stroke-dasharray: 10 5; //「10px の線」→「5px の隙間」→繰り返し
+        //stroke-dasharray で作られた破線を、どれだけずらすか（オフセットするか）。線を見えなくして「描かれていくように見せる」ために使う
+        stroke-dashoffset: 1000; //線全体を「見えない状態」にする（1000px ずらす）
+        animation: drawLine 2s ease forwards;
+      }
+
+      &.animated {
+        path {
+          animation: drawLine 2s ease forwards, fillIn 0.5s ease forwards;
+          animation-delay: 0s, 1.5s; // 線を引いた後に塗りつぶす
+        }
+      }
+    }
+  }
+
+  // 線を描く
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  // 塗りを入れる（後から）
+  @keyframes fillIn {
+    to {
+      fill: pink;
+    }
+  }
+}

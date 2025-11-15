@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>診断テスト</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div class="shindan">
+      <button id="startBtn">診断を始める</button>
+
+      <!-- 質問エリア -->
+      <div id="questionContainer" class="hidden">
+        <div id="questionText"></div>
+        <div id="options"></div>
+      </div>
+
+      <!-- 結果エリア -->
+      <div id="resultContainer" class="hidden">
+        <div id="resultText"></div>
+        <button id="restartBtn">もう一度診断する</button>
+      </div>
+
+      <!-- 質問データ（非表示） -->
+      <div id="questionData" class="hidden">
+        <div class="question" data-scores="A,B">
+          <span class="text">肩幅は広いですか？</span>
+        </div>
+        <div class="question" data-scores="B,A">
+          <span class="text">首の長さは短いですか？</span>
+        </div>
+        <div class="question" data-scores="A,B">
+          <span class="text">腰の位置は高いですか？</span>
+        </div>
+        <div class="question" data-scores="B,A">
+          <span class="text">手のひらは厚いですか？</span>
+        </div>
+        <div class="question" data-scores="A,B">
+          <span class="text">膝の皿は大きいですか？</span>
+        </div>
+        <div class="question" data-scores="B,A">
+          <span class="text">太ももに筋肉がつきやすいですか？</span>
+        </div>
+        <div class="question" data-scores="A,B">
+          <span class="text">手首は細いですか？</span>
+        </div>
+        <div class="question" data-scores="B,A">
+          <span class="text">足首は太いですか？</span>
+        </div>
+        <div class="question" data-scores="A,B">
+          <span class="text">鎖骨は目立ちますか？</span>
+        </div>
+        <div class="question" data-scores="B,A">
+          <span class="text">肩甲骨は出ていますか？</span>
+        </div>
+      </div>
+
+      <!-- 診断結果データ（非表示） -->
+      <div id="resultData" class="hidden">
+        <div data-min-a="0" data-max-a="2" data-min-b="8" data-max-b="10">
+          タイプA：筋肉質でがっしりした体型です。
+        </div>
+        <div data-min-a="3" data-max-a="4" data-min-b="6" data-max-b="7">
+          タイプB：バランスの良い体型です。
+        </div>
+        <div data-min-a="5" data-max-a="6" data-min-b="4" data-max-b="5">
+          タイプC：細身で華奢な体型です。
+        </div>
+        <div data-min-a="7" data-max-a="8" data-min-b="2" data-max-b="3">
+          タイプD：中間的な体型ですが、筋肉もつきやすいです。
+        </div>
+        <div data-min-a="9" data-max-a="10" data-min-b="0" data-max-b="1">
+          タイプE：非常に細く、華奢な体型です。
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

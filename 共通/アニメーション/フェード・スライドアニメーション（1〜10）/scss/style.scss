@@ -1,0 +1,47 @@
+@charset "utf-8";
+// styles.scss
+@import 'mixin';
+
+.animation-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  .animate-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+.animation-box {
+  width: 200px;
+  height: 200px;
+  background-color: #ff6f61;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  margin: 50px auto;
+  opacity: 0; // 初期状態では非表示
+}
+
+// Mixin適用
+@include fade-in;
+@include fade-out;
+@include slide-in;
+@include slide-out;
+@include zoom-in;
+@include zoom-out;
+@include bounce-in;
+@include bounce-out;
+@include spin;
+@include rotate-fade-in;

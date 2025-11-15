@@ -1,0 +1,163 @@
+// mixin.scss
+@mixin fade-in {
+  .fade-in {
+    animation: fadeIn 1s forwards;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fade-out {
+  .fade-out {
+    animation: fadeOut 1s forwards;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin slide-in {
+  .slide-in {
+    animation: slideIn 1s forwards;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slide-out {
+  .slide-out {
+    animation: slideOut 1s forwards;
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+}
+
+@mixin zoom-in {
+  .zoom-in {
+    animation: zoomIn 1s forwards;
+  }
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin zoom-out {
+  .zoom-out {
+    animation: zoomOut 1s forwards;
+  }
+  @keyframes zoomOut {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+}
+
+@mixin bounce-in {
+  .bounce-in {
+    animation: bounceIn 1s forwards;
+  }
+  @keyframes bounceIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin bounce-out {
+  .bounce-out {
+    animation: bounceOut 1s forwards;
+  }
+  @keyframes bounceOut {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+    to {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+}
+
+@mixin spin {
+  .spin {
+    animation: spin 1s forwards;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin rotate-fade-in {
+  .rotate-fade-in {
+    animation: rotateFadeIn 1s forwards;
+  }
+  @keyframes rotateFadeIn {
+    from {
+      transform: rotate(-90deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+  }
+}

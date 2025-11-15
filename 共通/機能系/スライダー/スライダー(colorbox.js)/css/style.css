@@ -1,0 +1,74 @@
+@charset "UTF-8";
+.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.gallery img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  border-color: #333;
+}
+
+/* ▼ 1. オーバーレイ（モーダルの下に表示） */
+.custom-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: 9990;
+}
+
+/* ▼ 2. Colorbox のモーダル内容 */
+#colorbox {
+  z-index: 10000 !important; /* オーバーレイより上に表示されるようにする */
+}
+
+/* ▼ 3. Colorbox のモーダル内のボックス */
+#cboxLoadedContent {
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+/* ▼ 4. モーダル内の共通スタイル */
+.modal-box {
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  line-height: 1.6;
+}
+
+/* ▼ 5. モーダル内の画像 */
+.modal-box img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1em;
+}
+
+#cbox {
+  /* ▼ 6. Colorbox ❌ボタンのスタイル調整（必要に応じて） */
+}
+#cboxLoadedContent::-webkit-scrollbar {
+  display: none;
+}
+#cboxClose {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  right: 10px !important;
+  top: 10px !important;
+  opacity: 0.8;
+}

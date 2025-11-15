@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #ddd;
+  transition: background 0.5s;
+}
+
+.bg-change {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.toggle-content {
+  display: none;
+  background: #ddd;
+  padding: 10px;
+}
+
+.animate-box {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  margin: 20px auto;
+}
+
+.animated {
+  animation: bounce 0.5s ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.switch-elements p {
+  display: none;
+  transition: all 0.5s;
+}
+.switch-elements p.active {
+  animation: fadein 0.5s ease-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+.rotate-3d-box {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: transform 1s ease-in-out;
+}
+
+.rotated {
+  transform: rotateY(720deg);
+}
+
+.light-effect-box {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  transition: box-shadow 0.5s ease-out;
+}
+.light-effect-box.glow {
+  box-shadow: 0 0 20px white;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  width: 200px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.filter-image {
+  width: 200px;
+  transition: filter 0.5s;
+}
+
+.filtered {
+  filter: grayscale(100%);
+}
+
+.toggle-list {
+  display: none;
+}

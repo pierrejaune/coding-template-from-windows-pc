@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper Variations</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="hero__mv"><img src="img/image01.jpg" alt="" /></div>
+    </div>
+
+    <main class="main">
+      <!-- ← 監視対象 -->
+      <div class="slider-wrapper">
+        <!-- ← 固定させる対象 -->
+        <div class="swiper-container scroll-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="img/image01.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/image02.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/image03.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="img/image03.jpg" alt="" />
+            </div>
+          </div>
+          <div class="slide-count">
+            <span class="current-slide">1</span>/<span class="total-slides"
+              >3</span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="foot">
+      <div class="foot__mv"><img src="img/image01.jpg" alt="" /></div>
+    </div>
+  </body>
+</html>

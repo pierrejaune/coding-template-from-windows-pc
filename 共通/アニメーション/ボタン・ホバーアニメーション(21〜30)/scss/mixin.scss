@@ -1,0 +1,133 @@
+@charset "utf-8";
+// styles.scss
+// @import 'mixin'; // mixinファイルをインポート（必要なら作成）
+
+// ✅ ホバー時にズーム
+@mixin hover-zoom($duration: 0.3s) {
+  transition: transform $duration ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// ✅ ホバー時に回転
+@mixin hover-rotate($duration: 0.3s) {
+  transition: transform $duration ease;
+
+  &:hover {
+    transform: rotate(15deg);
+  }
+}
+
+// ✅ ホバー時に色変更
+@mixin hover-color-change($color: #ff0000, $duration: 0.3s) {
+  transition: color $duration ease;
+
+  &:hover {
+    color: $color;
+  }
+}
+
+// ✅ ホバーで下線がスライド表示
+@mixin hover-underline-slide($duration: 0.3s) {
+  position: relative;
+
+  &:hover {
+    color: #ff0000;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff0000;
+    transform: scaleX(0);
+    transition: transform $duration ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+// ✅ ホバー時に背景がスライド
+@mixin hover-bg-slide($duration: 0.3s) {
+  position: relative;
+
+  &:hover {
+    color: white;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000;
+    transform: scaleX(0);
+    transition: transform $duration ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+// ✅ ホバーでボタンが膨らむ
+@mixin hover-grow($duration: 0.3s) {
+  transition: transform $duration ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+// ✅ ホバーで光が流れる
+@mixin hover-glow($duration: 0.3s) {
+  position: relative;
+  overflow: hidden;
+
+  // &:hover {
+  //   color: white;
+  // }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(15, 212, 150, 0.6);
+    transition: top $duration ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover::after {
+    top: 100%;
+  }
+}
+
+// ✅ ボタンを押した時に縮小
+@mixin button-press($duration: 0.3s) {
+  transition: transform $duration ease;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+// ✅ マウスが近づくと要素が動く
+@mixin hover-move($distance: 10px, $duration: 0.3s) {
+  transition: transform $duration ease;
+
+  &:hover {
+    transform: translate($distance);
+  }
+}

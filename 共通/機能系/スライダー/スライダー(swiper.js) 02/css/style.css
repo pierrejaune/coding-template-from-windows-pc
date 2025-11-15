@@ -1,0 +1,89 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+.swiper-container {
+  width: 80%;
+  max-width: 800px;
+  height: 300px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #ff6b6b, #ffa502);
+}
+
+/* スクロールで切り替え（ドット付き） */
+.scroll-slider {
+  height: 400px;
+  position: relative;
+}
+
+.swiper-pagination {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ホバーで切り替え */
+.hover-slider .swiper-slide {
+  transition: opacity 0.3s;
+}
+
+/* 3Dスライダー（カバーフロー） */
+.coverflow-slider .swiper-slide {
+  background: linear-gradient(45deg, #1e90ff, #00c3ff);
+}
+
+/* 3Dスライダー（フリップ） */
+.flip-slider .swiper-slide {
+  background: linear-gradient(45deg, #8e44ad, #e056fd);
+}
+
+.hover-pagination-slider {
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+}
+.hover-pagination-slider .swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.custom-pagination img {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.custom-pagination img:hover, .custom-pagination img.active {
+  opacity: 1;
+}
+
+/* レスポンシブスライダー */
+@media (max-width: 640px) {
+  .swiper-container {
+    width: 90%;
+    height: 250px;
+  }
+}

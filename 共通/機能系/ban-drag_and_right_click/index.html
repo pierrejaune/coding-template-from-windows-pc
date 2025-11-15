@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>指定範囲の画像のドラッグ、右クリックの禁止</title>
+  </head>
+  <body>
+    <div class="f-container">
+      <img src="test.jpg" alt="" />
+      <img src="icon.svg" alt="" />
+      <img src="sample.png" alt="" />
+      <video src="movie.mp4" controls></video>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // f-container 内の対象要素を取得
+        const elements = document.querySelectorAll(
+          ".f-container img[src$='.jpg'], " +
+            ".f-container img[src$='.png'], " +
+            ".f-container img[src$='.svg'], " +
+            ".f-container video[src$='.mp4']"
+        );
+
+        elements.forEach((el) => {
+          // 右クリック禁止
+          el.addEventListener('contextmenu', (e) => e.preventDefault());
+
+          // 画像のドラッグ禁止
+          el.setAttribute('draggable', 'false');
+
+          // 念のためマウスダウンで選択も無効化
+          el.addEventListener('mousedown', (e) => e.preventDefault());
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.f-container {
+  width: 100vw;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.sec {
+  &__swipe {
+    display: flex;
+    overflow-x: scroll; // ← 常時表示
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding: 20px;
+    background: #f0f0f0;
+    cursor: grab;
+
+    // Firefox用
+    scrollbar-width: thin;
+    scrollbar-color: orange beige;
+
+    // Webkit系（Chrome, Edge, Safari）
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: orange;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: beige;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+      user-select: none;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}

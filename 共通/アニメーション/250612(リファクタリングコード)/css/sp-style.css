@@ -1,0 +1,270 @@
+html {
+  font-size: 1.3333333333vw;
+}
+
+.typing {
+  position: absolute;
+}
+
+.fadeIn {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.fadeIn.is-active {
+  opacity: 1;
+}
+.fadeIn.anime-delay {
+  transition-delay: 0.2s;
+}
+
+.l-container #feature {
+  color: #000;
+  font-family: "magister", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: auto;
+  margin: 0 auto 97px;
+  max-width: 75rem;
+  text-align: center;
+  overflow: clip;
+}
+.l-container #feature *,
+.l-container #feature *::before,
+.l-container #feature *::after {
+  box-sizing: border-box;
+}
+.l-container #feature a {
+  color: inherit;
+  display: block;
+}
+.l-container #feature p {
+  margin: 0;
+}
+.l-container #feature img {
+  width: 100%;
+  display: block;
+}
+.l-container #feature picture {
+  display: block;
+}
+.l-container #feature .creditContainer {
+  max-width: 100%;
+  margin: 1.4rem 0 0;
+}
+.l-container #feature .creditContainer .credit {
+  color: #fff;
+  width: 100%;
+  font-size: 2.3rem;
+  line-height: 1.85;
+  letter-spacing: 0.06em;
+}
+.l-container #feature .creditContainer .credit li {
+  text-align: left;
+}
+.l-container #feature .creditContainer .credit li a {
+  text-decoration: none;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.l-container #feature .creditContainer .credit li .price {
+  margin-left: 0.7rem;
+}
+.l-container #feature .creditBtn {
+  display: block;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  height: 3.4rem;
+  width: 3.4rem;
+  z-index: 10;
+}
+.l-container #feature .creditBtn span {
+  display: block;
+  opacity: 0.8;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.l-container #feature .creditBtn span::before, .l-container #feature .creditBtn span::after {
+  background: #fff;
+  content: "";
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.l-container #feature .creditBtn span::before {
+  height: 1px;
+  width: 100%;
+}
+.l-container #feature .creditBtn span::after {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  height: 100%;
+  width: 1px;
+}
+.l-container #feature .creditBtn.on span::after {
+  transform: rotate(-90deg);
+}
+.l-container #feature .creditBtn:hover {
+  cursor: pointer;
+}
+.l-container #feature .creditList {
+  bottom: 1.6rem;
+  left: 1.7rem;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  width: 100%;
+  z-index: 2;
+}
+.l-container #feature .creditList.on {
+  pointer-events: all;
+  opacity: 1;
+}
+.l-container #feature .hero__text01 {
+  font-size: 4.2rem;
+  letter-spacing: 0.03em;
+  margin: 12.3rem auto 0;
+}
+.l-container #feature .hero__text02 {
+  font-size: 3rem;
+  letter-spacing: 0.03em;
+  margin: 1.8rem auto 0;
+}
+.l-container #feature .main {
+  margin-top: 8rem;
+  padding: 0 1rem;
+}
+.l-container #feature .sec__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.l-container #feature .sec__text {
+  width: 36rem;
+  letter-spacing: 0.02em;
+  position: relative;
+  word-break: break-all;
+}
+.l-container #feature .sec__text.--w {
+  width: 100%;
+}
+.l-container #feature .sec__text .typing {
+  position: absolute;
+}
+.l-container #feature .sec__img {
+  width: 36rem;
+  margin-top: 1rem;
+  position: relative;
+}
+.l-container #feature .sec__img.--w {
+  width: 100%;
+}
+.l-container #feature .sec__img::before {
+  background-color: rgba(0, 0, 0, 0.2);
+  content: "";
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.l-container #feature .sec__img.on::before {
+  opacity: 1;
+}
+.l-container #feature .sec01__text {
+  font-size: 3.8rem;
+}
+.l-container #feature .sec01__text .typing {
+  top: 24.9rem;
+  left: 2.7rem;
+}
+.l-container #feature .sec02__text01 {
+  font-size: 3.4rem;
+  padding: 4.8rem 0 3.5rem;
+  line-height: 5.2rem;
+}
+.l-container #feature .sec02__text01 .typing {
+  position: static;
+  text-align: left;
+}
+.l-container #feature .sec02__text01 .typing:nth-child(1) {
+  padding-left: 29.2rem;
+}
+.l-container #feature .sec02__text01 .typing:nth-child(2) {
+  padding-left: 14.8rem;
+}
+.l-container #feature .sec02__text02 {
+  font-size: 2.4rem;
+}
+.l-container #feature .sec02__text02 .typing {
+  left: 2rem;
+}
+.l-container #feature .sec02__text02 .typing:nth-child(1) {
+  top: 41.4rem;
+}
+.l-container #feature .sec02__text02 .typing:nth-child(2) {
+  top: 45rem;
+}
+.l-container #feature .sec02__text02 .typing:nth-child(3) {
+  top: 48.5rem;
+}
+.l-container #feature .sec03__text {
+  font-size: 3.4rem;
+  padding: 5rem 0 3.6rem;
+}
+.l-container #feature .sec03__text .typing {
+  position: static;
+  text-align: left;
+  padding-left: 20.7rem;
+}
+.l-container #feature .sec04__text {
+  font-size: 3.4rem;
+}
+.l-container #feature .sec04__text .typing {
+  top: 26rem;
+  padding-left: 8.3rem;
+  text-align: left;
+}
+.l-container #feature .checkBox {
+  margin: 19.6rem auto 0;
+}
+.l-container #feature .checkBox__btn {
+  font-size: 3.1rem;
+  letter-spacing: 0.04em;
+  padding-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+.l-container #feature .checkBox__btn::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  margin: auto;
+  transition: width 1s ease;
+  top: 5.7rem;
+  right: 0;
+  left: 0;
+}
+.l-container #feature .checkBox__btn.is-active::before {
+  width: 16rem;
+}
+.l-container #feature .checkBox__btn:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.feature-snslist {
+  margin: 0 auto;
+}

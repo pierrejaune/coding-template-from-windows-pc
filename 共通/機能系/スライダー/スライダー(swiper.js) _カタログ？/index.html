@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>カタログスライダー</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- クリックでスライダーを表示する画像 -->
+    <div class="catalog-click-list">
+      <img
+        src="img/image01.jpg"
+        alt="Catalog 1"
+        class="catalog-item"
+        data-slider="0"
+      />
+      <img
+        src="img/image02.jpg"
+        alt="Catalog 2"
+        class="catalog-item"
+        data-slider="1"
+      />
+      <img
+        src="img/image03.jpg"
+        alt="Catalog 3"
+        class="catalog-item"
+        data-slider="2"
+      />
+    </div>
+
+    <div class="catalog-list">
+      <!-- img/image01.jpgをクリックしたらスライダーになるもの -->
+      <div class="catalog catalog01">
+        <img src="img/image01_1.jpg" alt="Catalog 1" />
+        <img src="img/image01_2.jpg" alt="Catalog 1" />
+        <img src="img/image01_3.jpg" alt="Catalog 1" />
+      </div>
+
+      <!-- img/image02.jpgをクリックしたらスライダーになるもの -->
+      <div class="catalog catalog02">
+        <img src="img/image02_1.jpg" alt="Catalog 2" />
+        <img src="img/image02_2.jpg" alt="Catalog 2" />
+        <img src="img/image02_3.jpg" alt="Catalog 2" />
+      </div>
+
+      <!-- img/image03.jpgをクリックしたらスライダーになるもの -->
+      <div class="catalog catalog03">
+        <img src="img/image03_1.jpg" alt="Catalog 3" />
+        <img src="img/image03_2.jpg" alt="Catalog 3" />
+        <img src="img/image03_3.jpg" alt="Catalog 3" />
+      </div>
+    </div>
+
+    <!-- フルスクリーンのスライダー用レイヤー -->
+    <div class="slider-overlay">
+      <button class="prev-slider">◀</button>
+      <div class="slider-container"></div>
+      <button class="next-slider">▶</button>
+      <button class="close-btn">❌</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

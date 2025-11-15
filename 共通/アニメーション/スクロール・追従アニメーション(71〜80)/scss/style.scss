@@ -1,0 +1,111 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-bottom: 50vh;
+}
+
+// ヘッダー（ナビゲーション縮小用）
+.header {
+  background: #333;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  transition: all 0.3s;
+}
+
+// スクロールで浮かび上がる
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s;
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// スクロールで画像が回転
+.scroll-rotate img {
+  width: 200px;
+  transition: transform 0.8s;
+  &.active {
+    transform: rotate(360deg);
+  }
+}
+
+// スクロールでテキストがふわっと表示
+.scroll-text {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s;
+  &.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// 追従する要素
+.sticky-box {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  background: red;
+  color: white;
+  padding: 10px;
+}
+
+// 固定表示
+.fixed-box {
+  position: absolute;
+  top: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: blue;
+  color: white;
+  padding: 10px;
+}
+
+// ナビ縮小
+.nav {
+  background: black;
+  color: white;
+  padding: 20px;
+  transition: all 0.3s;
+  &.small {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+// 背景変更
+.bg-change {
+  height: 100vh;
+  transition: background 0.5s;
+}
+
+// 複数要素を連続表示
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s;
+}
+
+// 視差効果
+.parallax-bg {
+  height: 300px;
+  background: url('../img/image01.jpg') center/cover;
+  position: relative;
+}
+
+// 数字カウントアップ
+.counter {
+  font-size: 48px;
+  font-weight: bold;
+}

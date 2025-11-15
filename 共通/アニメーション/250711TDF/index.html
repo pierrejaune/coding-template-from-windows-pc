@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/refactored_v2.js" defer></script>
+  </head>
+  <body>
+    <div class="f-container">
+      <div class="fixed-content">
+        <div class="modal-content">
+          <div class="modal-content_box">
+            <div class="modal-box modal_01">
+              <div class="modal_img img_01">
+                <a href="">
+                  <img src="./img/img01.jpg" alt="モデル画像" />
+                </a>
+              </div>
+              <div class="modal_list">
+                <div class="modal_wrap_credit">
+                  <h3 class="modal_list_head">ITEMS</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-box modal_02">
+              <div class="modal_img img_02">
+                <a href="">
+                  <img src="./img/img02.jpg" alt="モデル画像" />
+                </a>
+              </div>
+              <div class="modal_list">
+                <div class="modal_wrap_credit">
+                  <h3 class="modal_list_head">ITEMS</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-box modal_03">
+              <div class="modal_img img_03">
+                <a href="">
+                  <img src="./img/img03.jpg" alt="モデル画像" />
+                </a>
+              </div>
+              <div class="modal_list">
+                <div class="modal_wrap_credit">
+                  <h3 class="modal_list_head">ITEMS</h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- 以降 modal_03, modal_04 ... -->
+          </div>
+
+          <!-- 共通ボタンをここに配置 -->
+          <button class="prev">◀</button>
+          <button class="next">▶</button>
+          <div class="modal-close">✕</div>
+        </div>
+      </div>
+
+      <section class="main">
+        <div class="main__Inner">
+          <h2 class="main__Ttl">25' PRE FALL COLLECTION</h2>
+          <ul class="main__List" id="main-list">
+            <li class="main__Item -item01" data-modal-num="modal_01">
+              <div class="animearea"><img src="./img/img01.jpg" alt="" /></div>
+            </li>
+            <li class="main__Item -item02" data-modal-num="modal_02">
+              <div class="animearea"><img src="./img/img02.jpg" alt="" /></div>
+            </li>
+            <li class="main__Item -item03" data-modal-num="modal_03">
+              <div class="animearea"><img src="./img/img03.jpg" alt="" /></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

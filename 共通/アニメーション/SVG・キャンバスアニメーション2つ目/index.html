@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css?ver=1" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- 1. SVGがバウンドする -->
+    <svg id="bounce-svg" width="100" height="100">
+      <circle cx="50" cy="50" r="20" fill="blue" />
+    </svg>
+
+    <!-- 2. SVGがフェードイン・フェードアウトする -->
+    <svg id="fade-svg" width="100" height="100">
+      <rect width="50" height="50" fill="red" />
+    </svg>
+
+    <!-- 3. SVGの要素がスケールしながら登場 -->
+    <svg id="scale-in-svg" width="100" height="100">
+      <path
+        d="M10,80 C40,10 60,10 90,80"
+        stroke="black"
+        fill="none"
+        stroke-width="3"
+      />
+    </svg>
+
+    <!-- 4. SVGの線が波のように動く -->
+    <svg id="wave-line" width="200" height="50">
+      <path
+        d="M10,25 Q50,5 90,25 T170,25"
+        stroke="blue"
+        fill="none"
+        stroke-width="3"
+      />
+    </svg>
+
+    <!-- 5. SVGの要素が回転しながらスライドイン -->
+    <svg id="rotate-slide-svg" width="100" height="100">
+      <rect width="50" height="50" fill="green" />
+    </svg>
+
+    <!-- 6. SVGの円が拡大しながらフェードアウト -->
+    <svg id="expand-fade-svg" width="100" height="100">
+      <circle cx="50" cy="50" r="20" fill="purple" />
+    </svg>
+
+    <!-- 7. SVGのテキストがストロークとフィルで切り替わる -->
+    <svg id="stroke-fill-text" width="200" height="100">
+      <text x="10" y="50" font-size="24" fill="black">SVG Text</text>
+    </svg>
+
+    <!-- 8. SVGの要素が弾むように拡大・縮小 -->
+    <svg id="elastic-svg" width="100" height="100">
+      <circle cx="50" cy="50" r="20" fill="orange" />
+    </svg>
+
+    <!-- 9. SVGの要素がランダムな位置に移動 -->
+    <svg id="random-move-svg" width="100" height="100">
+      <rect width="50" height="50" fill="cyan" />
+    </svg>
+
+    <!-- 10. SVGの色が時間経過で変化する -->
+    <svg id="color-shift-svg" width="100" height="100">
+      <circle cx="50" cy="50" r="20" fill="red" />
+    </svg>
+  </body>
+</html>

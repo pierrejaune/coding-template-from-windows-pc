@@ -1,0 +1,315 @@
+@charset "utf-8";
+// styles.scss
+// @import 'mixin'; // mixinファイルをインポート（必要なら作成）
+
+/* 回転するローディングアイコン */
+@mixin loading-rotate($duration: 2s) {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid transparent;
+  border-top: 5px solid #3498db;
+  border-right: 5px solid #3498db;
+  border-radius: 50%;
+  animation: rotate $duration linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 波紋ローディング */
+@mixin ripple-loading($duration: 1s) {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #3498db;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: ripple $duration ease-out infinite;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes ripple {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+  }
+}
+
+/* ドットが並ぶローディング */
+@mixin dot-loading($duration: 1s) {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  height: 20px;
+
+  span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3498db;
+    animation: bounce $duration infinite alternate;
+  }
+
+  span:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+/* バーが伸びるローディング */
+@mixin bar-loading($duration: 2s) {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: #f0f0f0;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #3498db;
+    animation: bar-extend $duration ease-in-out infinite;
+  }
+
+  @keyframes bar-extend {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 80%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+}
+
+/* スケルトンスクリーン */
+@mixin skeleton-loading($width: 100%, $height: 20px, $duration: 1.5s) {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton $duration ease-in-out infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ページ遷移時のローディング */
+@mixin page-transition-loading($duration: 1s) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #3498db;
+  opacity: 1;
+  transition: opacity $duration ease;
+
+  &.loading {
+    opacity: 1;
+  }
+
+  &.loaded {
+    opacity: 0;
+  }
+}
+
+/* ローディングが消えてページ表示 */
+@mixin fade-out-loading($duration: 1s) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #3498db;
+  opacity: 1;
+  transition: opacity $duration ease;
+
+  &.loading {
+    opacity: 1;
+  }
+
+  &.loaded {
+    opacity: 0;
+  }
+}
+
+/* スピナーアイコン */
+@mixin spinner-loading($duration: 1s) {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid transparent;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin $duration linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 円形ゲージアニメーション */
+@mixin circular-gauge-loading($duration: 1.5s) {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #3498db;
+  border-radius: 50%;
+  border-top: 5px solid transparent;
+  animation: rotate $duration linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* プログレスバーのアニメーション */
+@mixin progress-bar-loading($duration: 2s) {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #3498db;
+    animation: progress $duration ease-in-out infinite;
+  }
+
+  @keyframes progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  display: grid;
+  place-content: center;
+  grid-column: 1;
+  div {
+    margin: 30px 0;
+  }
+}
+
+/* 回転するローディングアイコン */
+.rotate {
+  @include loading-rotate(2s);
+}
+
+/* 波紋ローディング */
+.ripple {
+  @include ripple-loading(1s);
+}
+
+/* ドットが並ぶローディング */
+.dot-loading {
+  @include dot-loading(1s);
+}
+
+/* バーが伸びるローディング */
+.bar-loading {
+  @include bar-loading(2s);
+}
+
+/* スケルトンスクリーン */
+.skeleton-loading {
+  @include skeleton-loading(100%, 20px, 1.5s);
+}
+
+/* ページ遷移時のローディング */
+.page-transition-loading {
+  @include page-transition-loading(1s);
+}
+
+/* ローディングが消えてページ表示 */
+.fade-out-loading {
+  @include fade-out-loading(1s);
+}
+
+/* スピナーアイコン */
+.spinner {
+  @include spinner-loading(1s);
+}
+
+/* 円形ゲージアニメーション */
+.circular-gauge {
+  @include circular-gauge-loading(1.5s);
+}
+
+/* プログレスバーのアニメーション */
+.progress-bar {
+  @include progress-bar-loading(2s);
+}

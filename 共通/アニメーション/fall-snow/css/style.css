@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.snow_area {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 共通設定 */
+.snowflake {
+  position: absolute;
+  top: -50px;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 50%;
+  opacity: 0.9;
+  /* animation-timing-function: linear;
+  animation-fill-mode: forwards; */
+  /* 2アニメーションを同時適用 */
+  animation: fall var(--fall-duration, 10s) linear forwards,
+    sway var(--sway-duration, 6s) ease-in-out infinite;
+}
+
+/* サイズ別（背景色で確認） */
+.snowflake.s {
+  width: 8px;
+  height: 8px;
+  background-color: rgb(138, 210, 138);
+}
+
+.snowflake.m {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(138, 188, 210);
+}
+
+.snowflake.l {
+  width: 24px;
+  height: 24px;
+  background-color: rgb(210, 180, 138);
+}
+
+/* 縦の落下＋横揺れアニメーション */
+@keyframes fall {
+  0% {
+    top: -50px;
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(var(--sway)) rotate(180deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(calc(var(--sway) * -1)) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* 落下アニメーション */
+@keyframes fall {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.7;
+  }
+}
+
+/* 横揺れアニメーション — JavaScriptで設定された --sway を使用 */
+@keyframes sway {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(calc(var(--sway) * 0.25));
+  }
+  50% {
+    transform: translateX(calc(var(--sway) * -0.25));
+  }
+  75% {
+    transform: translateX(calc(var(--sway) * 0.25));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

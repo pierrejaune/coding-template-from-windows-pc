@@ -1,0 +1,14 @@
+.ph__area {
+  width: 300px;
+  margin: 0 auto;
+}
+.ph__area .ph__img {
+  height: 50vh;
+  margin-bottom: 5vh;
+  position: relative;
+}
+.ph__area .ph__img img {
+  height: 100%;
+  width: auto;
+  display: block;
+}

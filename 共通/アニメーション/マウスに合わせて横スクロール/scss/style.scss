@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.feature {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    color: #000;
+  }
+}
+.scroll__box {
+  margin-top: calc((84 / 900 * 100vh));
+  width: 100%;
+  height: calc((816 / 900 * 100vh));
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: flex;
+  /* スクロールバーを非表示にする */
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+}
+
+.credit {
+  opacity: 0;
+  transition: opacity 1s ease;
+  padding-left: calc((40 / 1400 * 100vw));
+  height: calc((96 / 900 * 100vh));
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  .item {
+    list-style: none;
+    font-size: calc((15 / 900 * 100vh));
+    &:nth-of-type(n + 2) {
+      margin-left: 10px;
+    }
+  }
+}
+
+.c {
+  &__sec {
+    position: relative;
+    display: flex;
+    // flex: 0 0 auto;
+    width: auto;
+    height: calc((720 / 900 * 100vh));
+    img {
+      width: auto;
+      height: 100%;
+    }
+
+    &.showed {
+      .credit {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__bg {
+    width: 100px;
+    height: 100%;
+    background-color: yellow;
+  }
+  &__img {
+    height: 100%;
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css?ver=1" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- SVGのパスを描画するアニメーション -->
+    <svg id="path-animation" width="200" height="100" viewBox="0 0 200 100">
+      <path
+        d="M10,50 Q100,-30 190,50 T370,50"
+        stroke="black"
+        fill="transparent"
+        stroke-width="2"
+      />
+    </svg>
+
+    <!-- SVGの塗りつぶしアニメーション -->
+    <svg id="fill-animation" width="100" height="100" viewBox="0 0 100 100">
+      <circle
+        cx="50"
+        cy="50"
+        r="40"
+        stroke="black"
+        stroke-width="2"
+        fill="transparent"
+      />
+    </svg>
+
+    <!-- SVGの回転 -->
+    <svg id="rotate-svg" width="100" height="100" viewBox="0 0 100 100">
+      <rect x="25" y="25" width="50" height="50" fill="blue" />
+    </svg>
+
+    <!-- SVGのパルス -->
+    <svg id="pulse-icon" width="100" height="100" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="30" fill="red" />
+    </svg>
+
+    <!-- SVGロゴが線で描かれる -->
+    <svg id="logo-draw" width="400" height="100" viewBox="0 0 200 100">
+      <text
+        x="10"
+        y="50"
+        font-size="40"
+        stroke="orange"
+        fill="transparent"
+        stroke-width="1"
+      >
+        LOGO すごい！
+      </text>
+    </svg>
+
+    <!-- SVGテキストが波打つ -->
+    <svg id="wave-text" width="200" height="100" viewBox="0 0 200 100">
+      <text x="10" y="50" font-size="40" fill="black">WAVE</text>
+    </svg>
+
+    <!-- SVGがマウスに追従 -->
+    <svg id="follow-mouse" width="50" height="50" viewBox="0 0 50 50">
+      <circle cx="25" cy="25" r="10" fill="green" />
+    </svg>
+
+    <!-- SVGが拡大・縮小 -->
+    <svg id="scale-svg" width="100" height="100" viewBox="0 0 100 100">
+      <rect x="25" y="25" width="50" height="50" fill="purple" />
+    </svg>
+
+    <!-- キャンバス背景アニメーション -->
+    <canvas id="canvas-animation" width="400" height="200"></canvas>
+
+    <!-- SVGの一部がスライドイン -->
+    <svg id="slide-in-svg" width="200" height="100" viewBox="0 0 200 100">
+      <rect x="-100" y="25" width="50" height="50" fill="orange" />
+    </svg>
+  </body>
+</html>

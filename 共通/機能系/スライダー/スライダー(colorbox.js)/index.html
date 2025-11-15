@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Colorbox モーダル表示</title>
+    <!-- jQuery 1.11.1 CDN -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Colorbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
+
+    <!-- オリジナルスクリプト -->
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/example3/colorbox.min.css"
+    />
+  </head>
+  <body>
+    <div class="gallery">
+      <a class="modal-link" href="#modal01" data-group="gallery">
+        <img src="img/image01.jpg" alt="Image 01" />
+      </a>
+      <a class="modal-link" href="#modal02" data-group="gallery">
+        <img src="img/image02.jpg" alt="Image 02" />
+      </a>
+      <a class="modal-link" href="#modal03" data-group="gallery">
+        <img src="img/image03.jpg" alt="Image 03" />
+      </a>
+    </div>
+
+    <div class="custom-overlay"></div>
+    <!-- モーダル用の隠しコンテンツ -->
+    <div class="modal-content" style="display: none">
+      <div id="modal01" class="modal-box">
+        <a href=""><img src="img/image01.jpg" alt="Image 01" /></a>
+        <p class="desc">説明文：こちらはImage01の詳細です。</p>
+        <p class="maker">メーカー名：メーカーA</p>
+      </div>
+
+      <div id="modal02" class="modal-box">
+        <a href=""><img src="img/image02.jpg" alt="Image 02" /></a>
+        <p class="desc">説明文：こちらはImage02の詳細です。</p>
+        <p class="maker">メーカー名：メーカーB</p>
+      </div>
+
+      <div id="modal03" class="modal-box">
+        <a href=""><img src="img/image03.jpg" alt="Image 03" /></a>
+        <p class="desc">説明文：こちらはImage03の詳細です。</p>
+        <p class="maker">メーカー名：メーカーC</p>
+      </div>
+    </div>
+  </body>
+</html>

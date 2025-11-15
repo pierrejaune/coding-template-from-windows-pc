@@ -1,0 +1,74 @@
+@charset "utf-8";
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ナビゲーションバーの固定 */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  z-index: 100;
+}
+
+/* レイアウト用コンテナ */
+.container {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* サイドバーの固定 */
+.sticky-sidebar {
+  position: sticky;
+  top: 20px;
+  width: 250px;
+  height: 300px;
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* メインコンテンツ */
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+}
+
+/* 長いスクロール用 */
+.long-content {
+  height: 1500px;
+  background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+  padding: 20px;
+}
+
+/* テーブルのヘッダー固定 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 40px;
+  background: #555;
+  color: white;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background: #f4f4f4;
+}

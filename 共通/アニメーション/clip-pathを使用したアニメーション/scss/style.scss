@@ -1,0 +1,241 @@
+@keyframes radiation {
+  0% {
+    z-index: 2;
+  }
+  25% {
+    z-index: 2;
+  }
+
+  25% {
+    clip-path: polygon(
+      50% 0,
+      100% 0,
+      100% 50%,
+      100% 100%,
+      50% 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+    z-index: 3;
+  }
+  28.125% {
+    clip-path: polygon(
+      100% 0,
+      100% 0,
+      100% 50%,
+      100% 100%,
+      50% 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  31.25% {
+    clip-path: polygon(
+      100% 50%,
+      100% 50%,
+      100% 50%,
+      100% 100%,
+      50% 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  34.375% {
+    clip-path: polygon(
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      50% 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  37.5% {
+    clip-path: polygon(
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  40.625% {
+    clip-path: polygon(
+      0 100%,
+      0 100%,
+      0 100%,
+      0 100%,
+      0 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  43.75% {
+    clip-path: polygon(
+      0 50%,
+      0 50%,
+      0 50%,
+      0 50%,
+      0 50%,
+      0 50%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  46.875% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 50% 0, 50% 50%);
+  }
+  50% {
+    clip-path: polygon(
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 50%
+    );
+    z-index: 3;
+  }
+
+  50.0000000001% {
+    z-index: 2;
+  }
+  74.999999% {
+    clip-path: polygon(
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 0,
+      50% 50%
+    );
+  }
+  75% {
+    clip-path: polygon(
+      50% 0,
+      100% 0,
+      100% 50%,
+      100% 100%,
+      50% 100%,
+      0 100%,
+      0 50%,
+      0 0,
+      50% 0,
+      50% 50%
+    );
+  }
+}
+
+// 観音開きアニメーション
+@keyframes revealSplitHorizontal {
+  0% {
+    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@mixin revealSplitHorizontalAnimation(
+  $duration: 1s,
+  $delay: 0s,
+  $timing: ease-out
+) {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+  &.showed {
+    animation: revealSplitHorizontal $duration $timing $delay forwards;
+  }
+}
+
+@mixin clipAnim($dir: bottom, $duration: 1s, $timing) {
+  position: relative;
+  overflow: hidden;
+  transition: clip-path $duration $timing;
+
+  @if $dir == top {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  } @else if $dir == bottom {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  } @else if $dir == left {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  } @else if $dir == right {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  } @else if $dir == top-left {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  } @else if $dir == top-right {
+    clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0);
+  } @else if $dir == bottom-left {
+    clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%);
+  } @else if $dir == bottom-right {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  }
+
+  &.showed {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.sec {
+  &__image {
+    width: 30rem;
+    margin: 5rem auto 2.5rem;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__text {
+    font-size: 1.5rem;
+    width: 30rem;
+    margin: 5rem auto 2.5rem;
+  }
+  .fl {
+    @include clipAnim(left, 3s, ease-out);
+  }
+  .fr {
+    @include clipAnim(right, 1s, cubic-bezier(0, 0.97, 0.95, -0.07));
+  }
+  .ft {
+    @include clipAnim(top, 4s, ease-in);
+  }
+  .fb {
+    @include clipAnim(bottom, 2s, ease);
+  }
+
+  .split-horizontal {
+    @include revealSplitHorizontalAnimation(1s, 1s, ease);
+  }
+}
