@@ -1,4 +1,0 @@
-https://usagi-online.com/s/240202PIS/のページで使われている機能
-gsap,ScrollTrigerの3.12を使用
-
-
