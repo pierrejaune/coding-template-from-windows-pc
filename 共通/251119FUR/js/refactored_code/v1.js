@@ -272,10 +272,42 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupGsap() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const center = document.querySelector('.container__center');
-  if (!center) return;
+  const centerContainer = document.querySelector('.container__center');
+  if (!centerContainer) {
+    console.error("基準要素 '.container__center' が見つかりません。");
+    return;
+  }
+  /*
+   * ▼▼▼【以下は既存の横スクロールコード（変更なし）】▼▼▼
+   */
+  const containerSelectors = ['.scroll-container'];
 
-  /* 元コードで行っていた横スクロール処理が
-     この中に入る想定のため（あなたの指示 4）
-     加筆や書き換えは行いません。 */
+  containerSelectors.forEach((selector, index) => {
+    const element = document.querySelector(selector);
+
+    const contentSelector =
+      index === 0
+        ? '.link--scroll'
+        : `.link--scroll${String(index + 1).padStart(2, '0')}`;
+    const content = element ? element.querySelector(contentSelector) : null;
+    console.log('content', content);
+
+    if (!element || !content) {
+      console.warn(`GSAP target elements not found for: ${selector}`);
+      return;
+    }
+
+    gsap.to(selector, {
+      x: () => `-${content.scrollWidth - centerContainer.offsetWidth}px`,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: selector,
+        start: 'center center',
+        end: () => `+=${content.scrollWidth}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+  });
 }
