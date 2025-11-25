@@ -1,37 +1,35 @@
-// ===============================
-//  GSAP ScrollTrigger 初期化
-// ===============================
+/******************************************************************
+ * GSAP + ScrollTrigger を全体に導入したバージョン
+ * - すべての IntersectionObserver を ScrollTrigger に置き換え
+ * - アニメーションは「class を付与して CSS で制御（あなたの指定 A）」方式を継続
+ * - 元コードの動作を忠実に維持しつつリファクタリング
+ ******************************************************************/
+
 window.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
-  setupGsap();
+  setupGsap(); // link04 の横スクロール（元仕様）
 });
 
-// ===============================================
-//  GSAP ScrollTrigger に置き換えたフェードイン
-// ===============================================
+/* --------------------------------------------------------------
+ * .target フェードイン（IO → ScrollTrigger）
+ * threshold: 0.5 → start: "top 60%"
+ * -------------------------------------------------------------- */
 window.addEventListener('load', () => {
-  // .target フェードイン
   document.querySelectorAll('.target').forEach((el) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 60%', // threshold:0.5 相当
-          toggleActions: 'play none none none',
-          onEnter: () => (el.dataset.isActive = 'true'),
-        },
-      }
-    );
+    el.classList.remove('is-active');
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 60%',
+      once: true,
+      onEnter: () => el.classList.add('is-active'),
+    });
   });
 });
 
-// ==============================
-// MV スライダー
-// ==============================
+/* --------------------------------------------------------------
+ * MV スライダー
+ * -------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   new Swiper('#feature .swiper-container', {
     loop: true,
@@ -43,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// ==============================
-// TOP スライダー
-// ==============================
+/* --------------------------------------------------------------
+ * TOP スライダー
+ * -------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   new Swiper('#feature .swiper-container02', {
     loop: true,
@@ -57,250 +55,227 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// ===================================================================
-// sec01 リボンアニメーション（既存クラス操作のまま → GSAP不要）
-// ===================================================================
+/* --------------------------------------------------------------
+ * sec01 リボンアニメーション（元の class 操作のまま）
+ * -------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  const ribbonElement = document.querySelector('.link03--ribbon');
-  if (ribbonElement) {
-    function triggerRibbonAnimation() {
-      ribbonElement.classList.remove('is-rotating');
-      void ribbonElement.offsetWidth;
-      ribbonElement.classList.add('is-rotating');
-    }
-    triggerRibbonAnimation();
-    setInterval(triggerRibbonAnimation, 7000);
+  const ribbon = document.querySelector('.link03--ribbon');
+  if (ribbon) {
+    const animate = () => {
+      ribbon.classList.remove('is-rotating');
+      void ribbon.offsetWidth; // Reflowでアニメをリセット
+      ribbon.classList.add('is-rotating');
+    };
+    animate();
+    setInterval(animate, 7000);
   }
 
-  // =============================================================
-  // sec03 link11 スパンコール → GSAP ScrollTrigger へ書き換え
-  // =============================================================
-  const triggerLink11 = document.querySelector('.link11');
-  const animLink11 = document.querySelectorAll(
-    '.link11--span01, .link11--span02'
-  );
+  /* --------------------------------------------------------------
+   * sec03 link11 → GSAP ScrollTrigger に置き換え
+   * threshold: 0.4 → start: "top 60%"
+   * -------------------------------------------------------------- */
+  const link11 = document.querySelector('.link11');
+  const spans11 = document.querySelectorAll('.link11--span01, .link11--span02');
+  if (link11 && spans11.length) {
+    spans11.forEach((s) => s.classList.remove('is-visible'));
 
-  if (triggerLink11 && animLink11.length) {
-    animLink11.forEach((el) => el.classList.remove('is-visible'));
-
-    gsap.fromTo(
-      animLink11,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 1,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: triggerLink11,
-          start: 'top 60%', // threshold:0.4 相当
-          once: true,
-        },
-      }
-    );
-  }
-
-  // =============================================================
-  // sec03 link12 → GSAP ScrollTrigger に書き換え
-  // =============================================================
-  const span01 = document.querySelector('.link12--span01');
-
-  if (span01) {
-    gsap.fromTo(
-      span01,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: span01,
-          start: 'top 55%', // threshold:0.7 の代替
-          once: true,
-        },
-      }
-    );
-  }
-
-  // =============================================================
-  // sec02 link05 → GSAP ScrollTrigger
-  // =============================================================
-  const wrap05 = document.querySelector('.link05__wrap');
-
-  if (wrap05) {
-    gsap.fromTo(
-      wrap05,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: wrap05,
-          start: 'top 60%', // threshold:0.5
-          once: true,
-        },
-      }
-    );
-  }
-
-  // =============================================================
-  // link16 can01 → GSAP ScrollTrigger
-  // =============================================================
-  const trigger16 = document.querySelector('.link16--can01');
-  const wrap16 = document.querySelector('.link16__wrap');
-
-  if (trigger16 && wrap16) {
-    wrap16.classList.remove('is-visible');
-
-    gsap.to(wrap16, {
-      opacity: 1,
-      duration: 1,
-      scrollTrigger: {
-        trigger: trigger16,
-        start: 'top 70%', // threshold:0.3
-        once: true,
+    ScrollTrigger.create({
+      trigger: link11,
+      start: 'top 60%',
+      once: true,
+      onEnter: () => {
+        spans11.forEach((s, i) => {
+          setTimeout(() => s.classList.add('is-visible'), i * 120);
+        });
       },
     });
   }
 
-  // =============================================================
-  // link24 ベア / レッドのループフェード（既存のロジック維持）
-  // =============================================================
+  /* --------------------------------------------------------------
+   * sec03 link12
+   * threshold: 0.7 → start: "top 55%"
+   * -------------------------------------------------------------- */
+  const span12 = document.querySelector('.link12--span01');
+  if (span12) {
+    span12.classList.remove('is-visible');
+
+    ScrollTrigger.create({
+      trigger: span12,
+      start: 'top 55%',
+      once: true,
+      onEnter: () => span12.classList.add('is-visible'),
+    });
+  }
+
+  /* --------------------------------------------------------------
+   * sec02 link05
+   * threshold: 0.5 → start: "top 60%"
+   * -------------------------------------------------------------- */
+  const wrap05 = document.querySelector('.link05__wrap');
+  if (wrap05) {
+    wrap05.classList.remove('is-visible');
+
+    ScrollTrigger.create({
+      trigger: wrap05,
+      start: 'top 60%',
+      once: true,
+      onEnter: () => wrap05.classList.add('is-visible'),
+    });
+  }
+
+  /* --------------------------------------------------------------
+   * link16
+   * threshold: 0.3 → start: "top 70%"
+   * -------------------------------------------------------------- */
+  const can16 = document.querySelector('.link16--can01');
+  const wrap16 = document.querySelector('.link16__wrap');
+  if (can16 && wrap16) {
+    wrap16.classList.remove('is-visible');
+
+    ScrollTrigger.create({
+      trigger: can16,
+      start: 'top 70%',
+      once: true,
+      onEnter: () => wrap16.classList.add('is-visible'),
+    });
+  }
+
+  /* --------------------------------------------------------------
+   * link24（bear / red のループフェード）元ロジックのまま
+   * -------------------------------------------------------------- */
   const red = document.querySelector('.rotate--red');
   const bear = document.querySelector('.rotate--bear');
-
   if (red && bear) {
-    const redDuration = 12000;
-    const bearDuration = 3000;
+    const redTime = 12000;
+    const bearTime = 3000;
 
-    function fadeToBear() {
+    const showBear = () => {
       red.style.opacity = '0';
       bear.style.opacity = '1';
-      setTimeout(fadeToRed, bearDuration);
-    }
-    function fadeToRed() {
+      setTimeout(showRed, bearTime);
+    };
+    const showRed = () => {
       red.style.opacity = '1';
       bear.style.opacity = '0';
-      setTimeout(fadeToBear, redDuration);
-    }
-    setTimeout(fadeToBear, redDuration);
+      setTimeout(showBear, redTime);
+    };
+    setTimeout(showBear, redTime);
   }
 
-  // =============================================================
-  // link25 キティ / レッドのループフェード（既存ロジック維持）
-  // =============================================================
+  /* --------------------------------------------------------------
+   * link25（kitty / red のループフェード）元ロジックのまま
+   * -------------------------------------------------------------- */
   const red25 = document.querySelector('.link25__wrap .rotate--red');
   const kitty25 = document.querySelector('.link25__wrap .rotate--kitty');
-
   if (red25 && kitty25) {
-    const redDuration_L25 = 12000;
-    const kittyDuration_L25 = 3000;
+    const redTime = 12000;
+    const kittyTime = 3000;
 
-    function fadeToKitty_L25() {
+    const showKitty = () => {
       red25.style.opacity = '0';
       kitty25.style.opacity = '1';
-      setTimeout(fadeToRed_L25, kittyDuration_L25);
-    }
-    function fadeToRed_L25() {
+      setTimeout(showRed25, kittyTime);
+    };
+    const showRed25 = () => {
       red25.style.opacity = '1';
       kitty25.style.opacity = '0';
-      setTimeout(fadeToKitty_L25, redDuration_L25);
-    }
-    setTimeout(fadeToKitty_L25, redDuration_L25);
+      setTimeout(showKitty, redTime);
+    };
+    setTimeout(showKitty, redTime);
   }
 
-  // =============================================================
-  // link26 りんごクリックアニメーション（既存ロジック維持）
-  // =============================================================
-  const appleElement = document.querySelector('.tap--anime .apple');
-  const link26Image = document.querySelector('.link26__wrap .link26');
-  const tapAnimeContainer = document.querySelector('.tap--anime');
-  const logoElement = document.querySelector('.link26--logo');
+  /* --------------------------------------------------------------
+   * link26 りんごクリックアニメーション（元ロジック維持）
+   * -------------------------------------------------------------- */
+  const apple = document.querySelector('.tap--anime .apple');
+  const img26 = document.querySelector('.link26__wrap .link26');
+  const tapBox = document.querySelector('.tap--anime');
+  const logo = document.querySelector('.link26--logo');
 
-  if (appleElement && link26Image && logoElement) {
-    let clickCount = 0;
-    const maxClicks = 10;
-    const scaleFactor = 0.96;
+  if (apple && img26 && logo && tapBox) {
+    let count = 0;
+    const max = 10;
+    const scaleDown = 0.96;
 
-    appleElement.addEventListener('click', () => {
-      if (clickCount < maxClicks) {
-        clickCount++;
+    apple.addEventListener('click', () => {
+      if (count >= max) return;
 
-        const m = link26Image.style.transform.match(/scale\((.*?)\)/);
-        const currentScale = m ? parseFloat(m[1]) : 1;
-        const newScale = currentScale * scaleFactor;
+      count++;
+      const m = img26.style.transform.match(/scale\((.*?)\)/);
+      const now = m ? parseFloat(m[1]) : 1;
+      const next = now * scaleDown;
 
-        link26Image.style.transform = `scale(${newScale})`;
+      img26.style.transform = `scale(${next})`;
 
-        if (clickCount === maxClicks) {
-          appleElement.style.cursor = 'default';
-          setTimeout(() => {
-            link26Image.style.transition =
-              'transform 2s ease-out, opacity 2s ease-out';
-            link26Image.style.transform = `scale(${newScale}) translateY(-400px)`;
-            link26Image.style.opacity = '0';
+      if (count === max) {
+        apple.style.cursor = 'default';
+        setTimeout(() => {
+          img26.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
+          img26.style.transform = `scale(${next}) translateY(-400px)`;
+          img26.style.opacity = '0';
 
-            if (tapAnimeContainer) {
-              tapAnimeContainer.style.transition = 'opacity 2s ease-out';
-              tapAnimeContainer.style.opacity = '0';
-              tapAnimeContainer.style.pointerEvents = 'none';
-            }
-          }, 300);
-        }
+          tapBox.style.transition = 'opacity 2s ease-out';
+          tapBox.style.opacity = '0';
+          tapBox.style.pointerEvents = 'none';
+        }, 300);
       }
     });
 
-    logoElement.addEventListener('click', () => {
-      if (clickCount === maxClicks) {
-        clickCount = 0;
-        link26Image.style.transition = 'none';
-        tapAnimeContainer.style.transition = 'none';
+    logo.addEventListener('click', () => {
+      if (count !== max) return;
 
-        link26Image.style.transform = 'scale(1) translateY(1000px)';
-        link26Image.style.opacity = '0';
+      count = 0;
+      img26.style.transition = 'none';
+      tapBox.style.transition = 'none';
 
-        tapAnimeContainer.style.transform = 'translateY(1000px)';
-        tapAnimeContainer.style.opacity = '0';
+      img26.style.transform = 'scale(1) translateY(1000px)';
+      img26.style.opacity = '0';
+      tapBox.style.transform = 'translateY(1000px)';
+      tapBox.style.opacity = '0';
 
-        void link26Image.offsetWidth;
+      void img26.offsetWidth;
 
-        setTimeout(() => {
-          const resetTransition =
-            'transform 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 2s ease-out';
+      setTimeout(() => {
+        const tr =
+          'transform 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 2s ease-out';
 
-          link26Image.style.transition = resetTransition;
-          link26Image.style.transform = 'scale(1) translateY(0)';
-          link26Image.style.opacity = '1';
+        img26.style.transition = tr;
+        tapBox.style.transition = tr;
 
-          tapAnimeContainer.style.transition = resetTransition;
-          tapAnimeContainer.style.transform = 'translateY(0)';
-          tapAnimeContainer.style.opacity = '1';
-        }, 50);
+        img26.style.transform = 'scale(1) translateY(0)';
+        img26.style.opacity = '1';
 
-        setTimeout(() => {
-          link26Image.style.transition = 'transform 0.3s ease-out';
-          appleElement.style.cursor = 'pointer';
-          appleElement.style.opacity = '1';
-          tapAnimeContainer.style.pointerEvents = 'auto';
-          tapAnimeContainer.style.transform = '';
-          tapAnimeContainer.style.transition = '';
-        }, 2000);
-      }
+        tapBox.style.transform = 'translateY(0)';
+        tapBox.style.opacity = '1';
+      }, 50);
+
+      setTimeout(() => {
+        img26.style.transition = 'transform 0.3s ease-out';
+        apple.style.cursor = 'pointer';
+        apple.style.opacity = '1';
+        tapBox.style.pointerEvents = 'auto';
+        tapBox.style.transform = '';
+        tapBox.style.transition = '';
+      }, 2000);
     });
 
-    link26Image.style.transform = 'scale(1)';
-    link26Image.style.opacity = '1';
-    link26Image.style.transition = 'transform 0.3s ease-out';
-    tapAnimeContainer.style.opacity = '1';
+    img26.style.transform = 'scale(1)';
+    img26.style.opacity = '1';
+    img26.style.transition = 'transform 0.3s ease-out';
+    tapBox.style.opacity = '1';
   }
 });
 
-// ====================================
-// link04 用 setupGsap（既存のまま）
-// ====================================
+/* --------------------------------------------------------------
+ * link04 横スクロール（元のまま扱う仕様）
+ * -------------------------------------------------------------- */
 function setupGsap() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const centerContainer = document.querySelector('.container__center');
-  if (!centerContainer) return;
+  const center = document.querySelector('.container__center');
+  if (!center) return;
+
+  /* 元コードで行っていた横スクロール処理が
+     この中に入る想定のため（あなたの指示 4）
+     加筆や書き換えは行いません。 */
 }

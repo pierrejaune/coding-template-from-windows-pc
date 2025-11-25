@@ -153,63 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. 要素 (span01Element) の監視を開始
   link12Observer.observe(span01Element);
 
-  // // sec07 link26 りんごクリックアニメーション
-  // const appleElement = document.querySelector('.tap--anime .apple');
-  // const link26Image = document.querySelector('.link26__wrap .link26');
-
-  // if (!appleElement || !link26Image) {
-  //   console.warn('必要な要素 (.apple または .link26) が見つかりません。');
-  //   return;
-  // }
-
-  // let clickCount = 0;
-  // const maxClicks = 10;
-  // const scaleFactor = 0.96;
-
-  // // .apple がクリックされた時の処理
-  // appleElement.addEventListener('click', () => {
-  //   if (clickCount < maxClicks) {
-  //     clickCount++;
-
-  //     const currentScaleMatch = link26Image.style.transform.match(/scale\((.*?)\)/);
-  //     let currentScale = currentScaleMatch ? parseFloat(currentScaleMatch[1]) : 1;
-
-  //     let newScale = currentScale * scaleFactor;
-
-  //     link26Image.style.transform = `scale(${newScale})`;
-
-  //     console.log(`クリック回数: ${clickCount}, 新しいスケール: ${newScale.toFixed(3)}`);
-
-  //     // 10回目に達した場合の処理
-  //     if (clickCount === maxClicks) {
-  //       console.log('最大クリック回数に達しました。');
-  //       appleElement.style.cursor = 'default';
-  //       appleElement.style.opacity = '0.5';
-
-  //       // 最後の縮小アニメーション(0.3s)が終わるのを待つ
-  //       setTimeout(() => {
-
-  //         // ★ 変更点:
-  //         // アニメーションを「2秒」かけて「ゆっくり」実行するよう
-  //         // transition を上書きします。
-  //         link26Image.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
-
-  //         // 2秒かけて -100px 上に移動し (scaleは維持)
-  //         link26Image.style.transform = `scale(${newScale}) translateY(-400px)`;
-  //         // 2秒かけて非表示にする
-  //         link26Image.style.opacity = '0';
-
-  //       }, 300); // 0.3秒待機
-  //     }
-  //   }
-  // });
-
-  // // 初回ロード時に画像をリセットする (リロード対策)
-  // link26Image.style.transform = 'scale(1)';
-  // link26Image.style.opacity = '1';
-  // // ★ 変更点: transition も初期状態に戻す
-  // link26Image.style.transition = 'transform 0.3s ease-out';
-
   // sec07 link26 りんごクリックアニメーション
   const appleElement = document.querySelector('.tap--anime .apple');
   const link26Image = document.querySelector('.link26__wrap .link26');
